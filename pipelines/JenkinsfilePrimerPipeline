@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    environment {
+        INSTAGRAM_LUISC = "@luis100fuegos"
+    }
+    stages {
+        stage('Saludo 1') {
+            steps {
+                echo 'Hola dede Saludo 1'
+            }
+        }
+        stage('Saludo 2'){
+            steps{
+                echo "Entro a paso 1, saludo 2"
+            }
+        }
+        stage('Imprimir variable de entorno'){
+            steps{
+                echo "{env.INSTAGRAM_LUISC}"
+                sh "echo 'hola.mundo'"// esto es un shell
+            }
+        }
+        stage('Imprimir variable de entorno sistema'){
+            steps{
+                echo "${INSTAGRAM_GLOBAL}"
+            }
+        }
+    }
+}
